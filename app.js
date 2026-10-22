@@ -57,3 +57,407 @@ $("#loginForm").addEventListener("submit",e=>{e.preventDefault();const name=$("#
 $("#jobModal").addEventListener("click",e=>{if(e.target===$("#jobModal"))$("#jobModal").close()});
 window.addEventListener("hashchange",()=>goPage(location.hash.slice(1)));
 renderCategories();renderSchemes();renderJobs();renderApplications();loadProfile();$("#applicationCount").textContent=String(applications.length).padStart(2,"0");goPage(location.hash.slice(1)||"home");
+/* ==========================================
+   SHRAMSETU MULTI-LANGUAGE SYSTEM
+   Hindi, English, Marathi, Urdu, Gujarati,
+   Bengali
+========================================== */
+
+(function () {
+  "use strict";
+
+  const LANGUAGES = {
+    hi: "हिंदी",
+    en: "English",
+    mr: "मराठी",
+    ur: "اردو",
+    gu: "ગુજરાતી",
+    bn: "বাংলা"
+  };
+
+  const TRANSLATIONS = {
+    "श्रमसेतु": {
+      en: "ShramSetu",
+      mr: "श्रमसेतू",
+      ur: "شرم سیتو",
+      gu: "શ્રમસેતુ",
+      bn: "শ্রমসেতু"
+    },
+    "होम": {
+      en: "Home",
+      mr: "मुख्यपृष्ठ",
+      ur: "ہوم",
+      gu: "હોમ",
+      bn: "হোম"
+    },
+    "मुख्य पृष्ठ": {
+      en: "Home",
+      mr: "मुख्यपृष्ठ",
+      ur: "مرکزی صفحہ",
+      gu: "મુખ્ય પૃષ્ઠ",
+      bn: "মূল পৃষ্ঠা"
+    },
+    "नौकरियां": {
+      en: "Jobs",
+      mr: "नोकऱ्या",
+      ur: "نوکریاں",
+      gu: "નોકરીઓ",
+      bn: "চাকরি"
+    },
+    "नौकरी": {
+      en: "Job",
+      mr: "नोकरी",
+      ur: "نوکری",
+      gu: "નોકરી",
+      bn: "চাকরি"
+    },
+    "योजनाएं": {
+      en: "Schemes",
+      mr: "योजना",
+      ur: "اسکیمیں",
+      gu: "યોજનાઓ",
+      bn: "প্রকল্প"
+    },
+    "सरकारी योजनाएं": {
+      en: "Government Schemes",
+      mr: "सरकारी योजना",
+      ur: "سرکاری اسکیمیں",
+      gu: "સરકારી યોજનાઓ",
+      bn: "সরকারি প্রকল্প"
+    },
+    "प्रशिक्षण": {
+      en: "Training",
+      mr: "प्रशिक्षण",
+      ur: "تربیت",
+      gu: "તાલીમ",
+      bn: "প্রশিক্ষণ"
+    },
+    "प्रोफाइल": {
+      en: "Profile",
+      mr: "प्रोफाइल",
+      ur: "پروفائل",
+      gu: "પ્રોફાઇલ",
+      bn: "প্রোফাইল"
+    },
+    "मेरी प्रोफाइल": {
+      en: "My Profile",
+      mr: "माझी प्रोफाइल",
+      ur: "میری پروفائل",
+      gu: "મારી પ્રોફાઇલ",
+      bn: "আমার প্রোফাইল"
+    },
+    "आवेदन": {
+      en: "Applications",
+      mr: "अर्ज",
+      ur: "درخواستیں",
+      gu: "અરજીઓ",
+      bn: "আবেদন"
+    },
+    "मेरे आवेदन": {
+      en: "My Applications",
+      mr: "माझे अर्ज",
+      ur: "میری درخواستیں",
+      gu: "મારી અરજીઓ",
+      bn: "আমার আবেদন"
+    },
+    "लॉगिन": {
+      en: "Login",
+      mr: "लॉगिन",
+      ur: "لاگ ان",
+      gu: "લૉગિન",
+      bn: "লগইন"
+    },
+    "लॉग इन": {
+      en: "Login",
+      mr: "लॉगिन",
+      ur: "لاگ ان",
+      gu: "લૉગિન",
+      bn: "লগইন"
+    },
+    "रजिस्टर": {
+      en: "Register",
+      mr: "नोंदणी",
+      ur: "رجسٹر",
+      gu: "રજિસ્ટર",
+      bn: "নিবন্ধন"
+    },
+    "पंजीकरण": {
+      en: "Registration",
+      mr: "नोंदणी",
+      ur: "رجسٹریشن",
+      gu: "નોંધણી",
+      bn: "নিবন্ধন"
+    },
+    "नाम": {
+      en: "Name",
+      mr: "नाव",
+      ur: "نام",
+      gu: "નામ",
+      bn: "নাম"
+    },
+    "मोबाइल नंबर": {
+      en: "Mobile Number",
+      mr: "मोबाईल नंबर",
+      ur: "موبائل نمبر",
+      gu: "મોબાઇલ નંબર",
+      bn: "মোবাইল নম্বর"
+    },
+    "ईमेल": {
+      en: "Email",
+      mr: "ईमेल",
+      ur: "ای میل",
+      gu: "ઈમેઇલ",
+      bn: "ইমেল"
+    },
+    "पता": {
+      en: "Address",
+      mr: "पत्ता",
+      ur: "پتہ",
+      gu: "સરનામું",
+      bn: "ঠিকানা"
+    },
+    "जिला": {
+      en: "District",
+      mr: "जिल्हा",
+      ur: "ضلع",
+      gu: "જિલ્લો",
+      bn: "জেলা"
+    },
+    "राज्य": {
+      en: "State",
+      mr: "राज्य",
+      ur: "ریاست",
+      gu: "રાજ્ય",
+      bn: "রাজ্য"
+    },
+    "खोजें": {
+      en: "Search",
+      mr: "शोधा",
+      ur: "تلاش کریں",
+      gu: "શોધો",
+      bn: "খুঁজুন"
+    },
+    "सर्च करें": {
+      en: "Search",
+      mr: "शोधा",
+      ur: "تلاش کریں",
+      gu: "શોધો",
+      bn: "খুঁজুন"
+    },
+    "विवरण देखें": {
+      en: "View Details",
+      mr: "तपशील पहा",
+      ur: "تفصیلات دیکھیں",
+      gu: "વિગતો જુઓ",
+      bn: "বিস্তারিত দেখুন"
+    },
+    "आवेदन करें": {
+      en: "Apply Now",
+      mr: "अर्ज करा",
+      ur: "درخواست دیں",
+      gu: "અરજી કરો",
+      bn: "আবেদন করুন"
+    },
+    "सब देखें": {
+      en: "View All",
+      mr: "सर्व पहा",
+      ur: "سب دیکھیں",
+      gu: "બધું જુઓ",
+      bn: "সব দেখুন"
+    },
+    "वापस": {
+      en: "Back",
+      mr: "मागे",
+      ur: "واپس",
+      gu: "પાછા",
+      bn: "ফিরে যান"
+    },
+    "सेव करें": {
+      en: "Save",
+      mr: "जतन करा",
+      ur: "محفوظ کریں",
+      gu: "સાચવો",
+      bn: "সংরক্ষণ করুন"
+    },
+    "अपडेट करें": {
+      en: "Update",
+      mr: "अपडेट करा",
+      ur: "اپ ڈیٹ کریں",
+      gu: "અપડેટ કરો",
+      bn: "আপডেট করুন"
+    },
+    "सबमिट करें": {
+      en: "Submit",
+      mr: "सबमिट करा",
+      ur: "جمع کریں",
+      gu: "સબમિટ કરો",
+      bn: "জমা দিন"
+    },
+    "रद्द करें": {
+      en: "Cancel",
+      mr: "रद्द करा",
+      ur: "منسوخ کریں",
+      gu: "રદ કરો",
+      bn: "বাতিল করুন"
+    },
+    "नोटिफिकेशन": {
+      en: "Notifications",
+      mr: "सूचना",
+      ur: "اطلاعات",
+      gu: "સૂચનાઓ",
+      bn: "বিজ্ঞপ্তি"
+    },
+    "नौकरी खोजें": {
+      en: "Find Jobs",
+      mr: "नोकऱ्या शोधा",
+      ur: "نوکری تلاش کریں",
+      gu: "નોકરી શોધો",
+      bn: "চাকরি খুঁজুন"
+    },
+    "सरकारी योजनाओं की जानकारी": {
+      en: "Government Scheme Information",
+      mr: "सरकारी योजनांची माहिती",
+      ur: "سرکاری اسکیموں کی معلومات",
+      gu: "સરકારી યોજનાઓની માહિતી",
+      bn: "সরকারি প্রকল্পের তথ্য"
+    },
+    "भाषा चुनें": {
+      en: "Select Language",
+      mr: "भाषा निवडा",
+      ur: "زبان منتخب کریں",
+      gu: "ભાષા પસંદ કરો",
+      bn: "ভাষা নির্বাচন করুন"
+    }
+  };
+
+  let currentLanguage = localStorage.getItem("shramsetu_language") || "hi";
+
+  function translateText(text) {
+    if (!text || currentLanguage === "hi") {
+      return text;
+    }
+
+    const trimmed = text.trim();
+
+    if (TRANSLATIONS[trimmed] &&
+        TRANSLATIONS[trimmed][currentLanguage]) {
+      return text.replace(
+        trimmed,
+        TRANSLATIONS[trimmed][currentLanguage]
+      );
+    }
+
+    return text;
+  }
+
+  function translatePage() {
+    document.documentElement.lang = currentLanguage;
+
+    document.documentElement.dir =
+      currentLanguage === "ur" ? "rtl" : "ltr";
+
+    document.querySelectorAll("[data-i18n]").forEach(function (element) {
+      const key = element.getAttribute("data-i18n");
+
+      if (TRANSLATIONS[key]) {
+        element.textContent =
+          currentLanguage === "hi"
+            ? key
+            : (TRANSLATIONS[key][currentLanguage] || key);
+      }
+    });
+
+    document.querySelectorAll("input[placeholder], textarea[placeholder]")
+      .forEach(function (element) {
+        const original = element.getAttribute("data-original-placeholder")
+          || element.placeholder;
+
+        if (!element.hasAttribute("data-original-placeholder")) {
+          element.setAttribute("data-original-placeholder", original);
+        }
+
+        element.placeholder = translateText(original);
+      });
+
+    document.querySelectorAll("button, a, label, h1, h2, h3, h4, p, span")
+      .forEach(function (element) {
+        if (element.children.length === 0 && element.textContent.trim()) {
+          if (!element.hasAttribute("data-original-text")) {
+            element.setAttribute("data-original-text", element.textContent);
+          }
+
+          const original = element.getAttribute("data-original-text");
+
+          element.textContent = translateText(original);
+        }
+      });
+
+    const languageSelect = document.getElementById("languageSelect");
+
+    if (languageSelect) {
+      languageSelect.value = currentLanguage;
+    }
+  }
+
+  function setLanguage(language) {
+    if (!LANGUAGES[language]) return;
+
+    currentLanguage = language;
+
+    localStorage.setItem("shramsetu_language", language);
+
+    translatePage();
+  }
+
+  function initializeLanguageSelector() {
+    const selector = document.getElementById("languageSelect");
+
+    if (selector) {
+      selector.value = currentLanguage;
+
+      selector.addEventListener("change", function () {
+        setLanguage(this.value);
+      });
+    }
+
+    translatePage();
+  }
+
+  window.ShramSetuLanguage = {
+    setLanguage: setLanguage,
+    getLanguage: function () {
+      return currentLanguage;
+    },
+    getLanguages: function () {
+      return LANGUAGES;
+    },
+    translatePage: translatePage
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      initializeLanguageSelector
+    );
+  } else {
+    initializeLanguageSelector();
+  }
+
+  // Translate newly rendered content as well.
+  const observer = new MutationObserver(function () {
+    if (!window._shramSetuTranslationRunning) {
+      window._shramSetuTranslationRunning = true;
+
+      requestAnimationFrame(function () {
+        translatePage();
+        window._shramSetuTranslationRunning = false;
+      });
+    }
+  });
+
+  observer.observe(document.documentElement, {
+    childList: true,
+    subtree: true
+  });
+
+})();
