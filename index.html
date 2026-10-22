@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#073b70">
+  <title>श्रमसेतु | ShramSetu</title>
+  <meta name="description" content="श्रमसेतु — कामगारों, नौकरी के अवसरों, कौशल और सरकारी योजनाओं की जानकारी के लिए डिजिटल प्लेटफॉर्म।">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <button class="icon-btn mobile-menu" id="menuBtn" aria-label="मेन्यू">☰</button>
+      <a class="brand" href="#home" aria-label="ShramSetu Home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span><strong>श्रमसेतु</strong><small>श्रमिक से सेवा तक</small></span>
+      </a>
+      <div class="top-actions">
+        <button class="icon-btn" id="notificationBtn" title="सूचनाएँ" aria-label="सूचनाएँ">♧<i class="dot"></i></button>
+        <button class="user-chip" id="profileQuick"><span class="avatar small">आ</span><span class="user-name">मोहम्मद आरिफ</span>⌄</button>
+      </div>
+    </header>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-user">
+        <div class="avatar">आ</div><div><b>मोहम्मद आरिफ</b><small>कामगार डेमो प्रोफाइल</small></div>
+      </div>
+      <nav class="side-nav">
+        <a href="#home" data-page="home" class="active"><span>⌂</span> होम</a>
+        <a href="#categories" data-page="categories"><span>▦</span> काम की श्रेणियाँ</a>
+        <a href="#jobs" data-page="jobs"><span>▣</span> नौकरी के अवसर</a>
+        <a href="#schemes" data-page="schemes"><span>✿</span> सरकारी योजनाएँ</a>
+        <a href="#training" data-page="training"><span>✦</span> प्रशिक्षण व कौशल</a>
+        <a href="#profile" data-page="profile"><span>♙</span> मेरा प्रोफाइल</a>
+        <a href="#applications" data-page="applications"><span>☷</span> आवेदन स्थिति</a>
+        <a href="#login" data-page="login"><span>⇥</span> लॉगिन / रजिस्टर</a>
+      </nav>
+      <div class="sidebar-note"><b>आपका कौशल, आपकी पहचान</b><p>बेहतर अवसरों की ओर एक कदम।</p></div>
+      <small class="version">SHRAMSETU · Demo v1.0</small>
+    </aside>
+
+    <main class="main-content" id="mainContent">
+      <section class="page active" id="page-home">
+        <div class="welcome-banner">
+          <div class="banner-copy">
+            <span class="eyebrow">डिजिटल कामगार सेवा</span>
+            <h1>नमस्ते, मोहम्मद आरिफ! <span>👋</span></h1>
+            <p>आपके कौशल और अनुभव के अनुसार काम, प्रशिक्षण और योजनाएँ खोजें।</p>
+            <div class="banner-actions"><a class="btn btn-light" href="#jobs">नौकरी खोजें <span>→</span></a><a class="btn btn-outline-light" href="#profile">प्रोफाइल अपडेट करें</a></div>
+          </div>
+          <div class="banner-art" aria-hidden="true"><div class="sun"></div><div class="building b1"></div><div class="building b2"></div><div class="worker worker1">👷</div><div class="worker worker2">👩‍🔧</div><div class="bridge"></div></div>
+        </div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-icon orange">▣</div><div><small>उपलब्ध नौकरियाँ</small><strong id="jobCount">1,250+</strong><span class="positive">नई नौकरियाँ देखें</span></div></article>
+          <article class="stat-card"><div class="stat-icon green">✓</div><div><small>प्रोफाइल स्थिति</small><strong>70%</strong><span>प्रोफाइल पूरी करें</span></div></article>
+          <article class="stat-card"><div class="stat-icon blue">✦</div><div><small>सरकारी योजनाएँ</small><strong>25+</strong><span>पात्रता जाँचें</span></div></article>
+          <article class="stat-card"><div class="stat-icon purple">☷</div><div><small>मेरे आवेदन</small><strong id="applicationCount">02</strong><span>स्थिति देखें</span></div></article>
+        </div>
+        <div class="section-heading"><div><span class="eyebrow">आपके लिए</span><h2>त्वरित सेवाएँ</h2></div><a href="#categories" class="text-link">सभी सेवाएँ →</a></div>
+        <div class="quick-grid">
+          <a class="quick-card" href="#profile"><span class="quick-icon orange">♙</span><b>मेरा प्रोफाइल</b><small>जानकारी अपडेट करें</small></a>
+          <a class="quick-card" href="#schemes"><span class="quick-icon red">✿</span><b>सरकारी योजनाएँ</b><small>लाभ और पात्रता जानें</small></a>
+          <a class="quick-card" href="#jobs"><span class="quick-icon blue">▣</span><b>नौकरी के अवसर</b><small>काम खोजें और आवेदन करें</small></a>
+          <a class="quick-card" href="#training"><span class="quick-icon green">✦</span><b>प्रशिक्षण</b><small>नए कौशल सीखें</small></a>
+        </div>
+        <div class="section-heading"><div><span class="eyebrow">काम के अवसर</span><h2>लोकप्रिय नौकरियाँ</h2></div><a href="#jobs" class="text-link">सभी नौकरियाँ →</a></div>
+        <div class="job-list compact" id="homeJobs"></div>
+        <div class="disclaimer">यह GitHub Pages पर चलने वाला डेमो फ्रंट-एंड है। नौकरी, योजनाओं और सत्यापन संबंधी जानकारी को प्रकाशित करने से पहले सत्यापित करें।</div>
+      </section>
+
+      <section class="page" id="page-categories">
+        <div class="page-title"><div><span class="eyebrow">अपना काम चुनें</span><h1>काम की श्रेणियाँ</h1><p>अपने कौशल के अनुसार श्रेणी चुनें और संबंधित अवसर देखें।</p></div></div>
+        <div class="category-grid" id="categoryGrid"></div>
+      </section>
+
+      <section class="page" id="page-jobs">
+        <div class="page-title"><div><span class="eyebrow">करियर के अवसर</span><h1>नौकरी खोजें</h1><p>स्थान, काम और वेतन के आधार पर अवसर खोजें।</p></div><button class="btn btn-primary" id="employerPostBtn">＋ नौकरी पोस्ट करें</button></div>
+        <div class="filter-panel">
+          <label class="search-field"><span>⌕</span><input id="jobSearch" placeholder="काम या पद का नाम खोजें..." type="search"></label>
+          <select id="locationFilter" aria-label="स्थान"><option value="">सभी स्थान</option><option>अकोला</option><option>नागपुर</option><option>पुणे</option><option>मुंबई</option><option>नासिक</option></select>
+          <select id="typeFilter" aria-label="काम का प्रकार"><option value="">सभी प्रकार</option><option>Full-time</option><option>Part-time</option><option>Contract</option></select>
+          <button class="btn btn-primary" id="filterBtn">खोजें</button>
+        </div>
+        <div class="result-line"><span id="resultsLabel">नौकरियाँ दिखाई जा रही हैं</span><select id="sortJobs" aria-label="क्रम"><option value="recommended">अनुशंसित</option><option value="salary">वेतन: अधिक पहले</option></select></div>
+        <div class="job-list" id="jobsList"></div>
+      </section>
+
+      <section class="page" id="page-schemes">
+        <div class="page-title"><div><span class="eyebrow">जानकारी और सहायता</span><h1>सरकारी योजनाएँ</h1><p>कामगारों के लिए उपयोगी योजनाओं की शुरुआती जानकारी। पात्रता और आवेदन आधिकारिक पोर्टल पर जाँचें।</p></div></div>
+        <div class="scheme-grid" id="schemeGrid"></div>
+        <div class="info-callout"><strong>⚠ जरूरी सूचना</strong><p>यह सूची केवल जानकारी के लिए है। किसी भी योजना की पात्रता, दस्तावेज़, लाभ और आवेदन प्रक्रिया संबंधित सरकारी वेबसाइट से सत्यापित करें। श्रमसेतु डेमो सरकारी पोर्टल नहीं है।</p></div>
+      </section>
+
+      <section class="page" id="page-training">
+        <div class="page-title"><div><span class="eyebrow">सीखें और आगे बढ़ें</span><h1>प्रशिक्षण व कौशल विकास</h1><p>अपने कौशल को बेहतर बनाने के लिए प्रशिक्षण विकल्प देखें।</p></div></div>
+        <div class="training-grid">
+          <article class="training-card"><div class="training-art t-blue">🧰</div><span class="tag">तकनीकी कौशल</span><h3>इलेक्ट्रिशियन बेसिक्स</h3><p>घरेलू वायरिंग, सुरक्षा और बेसिक रिपेयर की जानकारी।</p><button class="btn btn-soft enroll" data-course="इलेक्ट्रिशियन बेसिक्स">रुचि दर्ज करें</button></article>
+          <article class="training-card"><div class="training-art t-orange">💻</div><span class="tag">डिजिटल कौशल</span><h3>कंप्यूटर ऑपरेटर</h3><p>कंप्यूटर की बुनियादी जानकारी और ऑफिस टूल्स।</p><button class="btn btn-soft enroll" data-course="कंप्यूटर ऑपरेटर">रुचि दर्ज करें</button></article>
+          <article class="training-card"><div class="training-art t-green">🛠️</div><span class="tag">निर्माण कौशल</span><h3>निर्माण कार्य सुरक्षा</h3><p>कार्यस्थल सुरक्षा और सामान्य निर्माण कौशल।</p><button class="btn btn-soft enroll" data-course="निर्माण कार्य सुरक्षा">रुचि दर्ज करें</button></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-profile">
+        <div class="page-title"><div><span class="eyebrow">आपकी जानकारी</span><h1>मेरा प्रोफाइल</h1><p>नौकरी के अवसरों के लिए अपनी जानकारी अपडेट रखें।</p></div><span class="verified-pill">● डेमो प्रोफाइल</span></div>
+        <form class="profile-card" id="profileForm">
+          <div class="profile-head"><div class="avatar big" id="profileAvatar">आ</div><div><h2 id="profileHeading">मोहम्मद आरिफ</h2><p>कामगार प्रोफाइल</p></div><span class="profile-progress">70% पूरा</span></div>
+          <div class="form-grid">
+            <label>पूरा नाम<input name="name" id="profileName" value="मोहम्मद आरिफ" required></label>
+            <label>मोबाइल नंबर<input name="mobile" id="profileMobile" inputmode="numeric" maxlength="10" placeholder="10 अंकों का मोबाइल नंबर"></label>
+            <label>राज्य<select name="state" id="profileState"><option>महाराष्ट्र</option><option>मध्य प्रदेश</option><option>गुजरात</option><option>उत्तर प्रदेश</option><option>अन्य</option></select></label>
+            <label>शहर / जिला<input name="city" id="profileCity" value="अकोला"></label>
+            <label>काम / कौशल<select name="skill" id="profileSkill"><option>मजदूर</option><option>इलेक्ट्रिशियन</option><option>प्लंबर</option><option>मिस्त्री</option><option>वेल्डर</option><option>कारपेंटर</option><option>ड्राइवर</option><option>कंप्यूटर ऑपरेटर</option></select></label>
+            <label>अनुभव<select name="experience" id="profileExperience"><option>नया / 1 साल से कम</option><option>1–3 साल</option><option>3–5 साल</option><option>5 साल से अधिक</option></select></label>
+          </div>
+          <label class="full-label">अपने बारे में<textarea id="profileAbout" rows="3" placeholder="अपने अनुभव और कौशल के बारे में लिखें"></textarea></label>
+          <div class="form-actions"><button type="submit" class="btn btn-primary">प्रोफाइल सेव करें</button><span id="profileMessage" role="status"></span></div>
+        </form>
+        <div class="info-callout"><strong>गोपनीयता</strong><p>यह डेमो डेटा केवल आपके ब्राउज़र में सेव होता है। इसे सर्वर या सरकारी डेटाबेस पर नहीं भेजा जाता।</p></div>
+      </section>
+
+      <section class="page" id="page-applications">
+        <div class="page-title"><div><span class="eyebrow">आपकी गतिविधि</span><h1>मेरे आवेदन</h1><p>नौकरी के लिए किए गए डेमो आवेदन यहाँ दिखाई देंगे।</p></div></div>
+        <div class="application-list" id="applicationList"></div>
+      </section>
+
+      <section class="page" id="page-login">
+        <div class="login-wrap">
+          <div class="login-intro"><div class="brand-mark large"><span></span><span></span><span></span></div><h1>श्रमसेतु में आपका स्वागत है</h1><p>श्रमिक से सेवा तक, एक ही डिजिटल सेतु।</p><ul><li>✓ नौकरी के अवसर खोजें</li><li>✓ अपनी कौशल प्रोफाइल बनाएँ</li><li>✓ योजनाओं की जानकारी पाएँ</li></ul></div>
+          <form class="login-card" id="loginForm"><h2>लॉगिन / रजिस्टर</h2><p>डेमो अकाउंट बनाने के लिए जानकारी भरें।</p><label>आपका नाम<input id="loginName" required placeholder="पूरा नाम"></label><label>मोबाइल नंबर<input id="loginMobile" required inputmode="numeric" maxlength="10" placeholder="10 अंकों का मोबाइल नंबर"></label><button class="btn btn-primary wide" type="submit">डेमो में आगे बढ़ें</button><small>यह असली OTP या सरकारी लॉगिन नहीं है।</small><div id="loginMessage" role="status"></div></form>
+        </div>
+      </section>
+    </main>
+
+    <nav class="mobile-bottom" aria-label="मुख्य नेविगेशन">
+      <a href="#home" data-page="home" class="active"><span>⌂</span>होम</a><a href="#categories" data-page="categories"><span>▦</span>श्रेणियाँ</a><a href="#jobs" data-page="jobs"><span>▣</span>नौकरी</a><a href="#schemes" data-page="schemes"><span>✿</span>योजनाएँ</a><a href="#profile" data-page="profile"><span>♙</span>प्रोफाइल</a>
+    </nav>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+
+  <dialog id="jobModal" class="modal">
+    <form method="dialog" class="modal-head"><div><span class="eyebrow">नौकरी का विवरण</span><h2 id="modalTitle">नौकरी</h2></div><button class="icon-btn" aria-label="बंद करें">✕</button></form>
+    <div class="modal-body" id="modalBody"></div>
+  </dialog>
+  <dialog id="postModal" class="modal">
+    <form id="postJobForm" class="post-form">
+      <div class="modal-head"><div><span class="eyebrow">Employer demo</span><h2>नई नौकरी पोस्ट करें</h2></div><button type="button" class="icon-btn" id="closePostModal">✕</button></div>
+      <label>पद का नाम<input id="postTitle" required placeholder="जैसे: इलेक्ट्रिशियन"></label>
+      <div class="form-grid"><label>स्थान<input id="postLocation" required placeholder="शहर"></label><label>मासिक वेतन<input id="postSalary" required placeholder="जैसे ₹12,000–18,000"></label></div>
+      <label>काम का प्रकार<select id="postType"><option>Full-time</option><option>Part-time</option><option>Contract</option></select></label>
+      <label>काम का विवरण<textarea id="postDescription" rows="3" required placeholder="काम की जिम्मेदारियाँ और आवश्यक कौशल"></textarea></label>
+      <button class="btn btn-primary wide" type="submit">डेमो नौकरी जोड़ें</button><small>डेमो पोस्ट केवल इस ब्राउज़र में सेव होगी।</small>
+    </form>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>
