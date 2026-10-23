@@ -443,19 +443,29 @@ renderCategories();renderSchemes();renderJobs();renderApplications();loadProfile
     initializeLanguageSelector();
   }
 
-  // Translate newly rendered content as well.
-  const observer = new MutationObserver(function () {
-    if (!window._shramSetuTranslationRunning) {
-      window._shramSetuTranslationRunning = true;
+// Translate newly rendered content without repeatedly
+  // processing the entire page for every text mutation.
 
-      requestAnimationFrame(function () {
-        translatePage();
-        window._shramSetuTranslationRunning = false;
+  let translationScheduled = false;
+
+  const observer = new MutationObserver(function (mutations) {
+    const hasNewElements = mutations.some(function (mutation) {
+      return Array.from(mutation.addedNodes).some(function (node) {
+        return node.nodeType === Node.ELEMENT_NODE;
       });
-    }
+    });
+
+    if (!hasNewElements || translationScheduled) return;
+
+    translationScheduled = true;
+
+    requestAnimationFrame(function () {
+      translationScheduled = false;
+      translatePage();
+    });
   });
 
-  observer.observe(document.documentElement, {
+  observer.observe(document.getElementById("mainContent"), {
     childList: true,
     subtree: true
   });
